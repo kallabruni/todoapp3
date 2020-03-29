@@ -34,11 +34,16 @@ def loginuser(request):
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
             return render(request, 'todo/loginuser.html', {'form':AuthenticationForm(), 'error':'username and password did not match'})
+        else:
+            login(request, user)
+            return redirect('curenttodos')
+
 
 def logoutuser(request):
     if request.method == 'POST':
         logout(request)
         return redirect('home')
+
 
 
 def curenttodos(request):
