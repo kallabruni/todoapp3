@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
 from .forms import TodoForm
+from .models import Todo
 
 
 def home(request):
@@ -60,4 +61,5 @@ def createtodos(request):
             return render(request, 'todo/create.html', {'form':TodoForm(), 'error':'Bad data passed in. Try again.'})
 
 def curenttodos(request):
-    return render(request, 'todo/curenttodos.html')
+    todos = Todo.objects.filter(user=request.user, datecompleted__isnull=True)
+    return render(request, 'todo/curenttodos.html', {'todos':todos})
