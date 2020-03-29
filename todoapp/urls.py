@@ -27,9 +27,11 @@ urlpatterns = [
     #logout
     path('logout/', views.logoutuser, name='logoutuser'),
 
+
     #todos
     path('curent/', views.curenttodos, name='curenttodos'),
-
+    #createtodo
+    path('create/', views.createtodos, name='createtodos'),
     #homepage
     path('', views.home, name='home'),
 ]
