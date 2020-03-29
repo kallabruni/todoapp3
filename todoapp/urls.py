@@ -31,7 +31,13 @@ urlpatterns = [
     #todos
     path('curent/', views.curenttodos, name='curenttodos'),
     #createtodo
-    path('create/', views.createtodos, name='createtodos'),
+    path('create/', views.createtodo, name='createtodo'),
     #homepage
     path('', views.home, name='home'),
+    #todo edit
+    path('todo/<int:todo_pk>', views.viewtodo, name='viewtodo'),
+    #todo complate
+    path('todo/<int:todo_pk>/complate', views.complatetodo, name='complatetodo'),
+    #todo delate
+    path('todo/<int:todo_pk>/delete', views.deletetodo, name='deletetodo'),
 ]
