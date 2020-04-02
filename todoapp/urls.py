@@ -21,16 +21,19 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #auth
+    #registration
     path('signup/', views.signupuser, name='signupuser'),
     #login
     path('login/', views.loginuser, name='loginuser'),
     #logout
     path('logout/', views.logoutuser, name='logoutuser'),
 
-
     #todos
+    #todos displaying
     path('curent/', views.curenttodos, name='curenttodos'),
-    #createtodo
+    #todos completed
+    path('completed/', views.completedtodos, name='completedtodos'),
+    #create todo
     path('create/', views.createtodo, name='createtodo'),
     #homepage
     path('', views.home, name='home'),
